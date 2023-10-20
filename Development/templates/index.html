@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        select {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .option-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .option-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .option-text {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Home Page</h1>
+        <p>Select a page from the dropdown:</p>
+        <form action="" method="get">
+            <select name="page" onchange="location = this.value;">
+                <option value="/" class="option-item">
+                    <img src="home-icon.png" alt="Home Icon" class="option-icon">
+                    <span class="option-text">Home page</span>
+                </option>
+                <option value="/get_retail_offers" class="option-item">
+                    <img src="retail-icon.png" alt="Retail Icon" class="option-icon">
+                    <span class="option-text">Page for retail offers</span>
+                </option>
+                <option value="/get_cat_offers" class="option-item">
+                    <img src="category-icon.png" alt="Category Icon" class="option-icon">
+                    <span class="option-text">Page for category offers</span>
+                </option>
+                <option value="/get_brand_offers" class="option-item">
+                    <img src="brand-icon.png" alt="Brand Icon" class="option-icon">
+                    <span class="option-text">Page for brand offers</span>
+                </option>
+            </select>
+        </form>
+    </div>
+</body>
+</html>

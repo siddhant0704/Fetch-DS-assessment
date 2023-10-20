@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/page1.css">
+    <form action="/" method="get">
+        <input type="submit" value="Go back to Home Page">
+    </form>
+    <title>Category Offers</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Category Offers</h1>
+        <form method="POST" action="/get_cat_offers">
+            <label for="category">Enter a category: </label>
+            <input type="text" name="category" id="category" required>
+            <input type="submit" value="Get Category">
+        </form>
+        {% if result %}
+        <div class="result">
+        {% if result[1][1] == False %}
+        <p>Offers for {{ result[0] }}:</p>
+        <ul>
+            {% for offer in result[1][0] %}
+            {% if offer.strip() %}
+            <li>{{ offer }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+
+        {% if result[1][1] == True %}
+        <p>Offers for {{ result[0] }}:</p>
+        <ul>
+            {% for sc, offer, ss in result[1][0] %}
+            <li>Similar category: {{ sc }}</li>
+            <ul>
+                <li>Similarity score: {{ ss }}</li>
+                <li>Offers:</li>
+                {% for i in offer %}
+                <ul>{{ i }}</ul>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>

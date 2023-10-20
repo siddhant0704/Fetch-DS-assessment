@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/page1.css">
+    <form action="/" method="get">
+        <input type="submit" value="Go back to Home Page">
+    </form>
+    <title>Merchant Offers</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Merchant Offers</h1>
+        <form method="POST" action="/get_retail_offers">
+            <label for="merchant">Enter a merchant name: </label>
+            <input type="text" name="merchant" id="merchant" required>
+            <button type="submit">Get Offers</button>
+        </form>
+        {% if result %}
+        <div class="result">
+            <p class="result-title">Offers for {{ result[0] }}:</p>
+            <ul class="result-list">
+                {% for offer in result[1] %}
+                {% if offer.strip() %}
+                <li>{{ offer }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

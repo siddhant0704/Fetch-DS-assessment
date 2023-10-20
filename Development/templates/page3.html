@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/page1.css">
+    <form action="/" method="get">
+        <input type="submit" value="Go back to Home Page">
+    </form>
+    <title>Category Offers</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Category Offers</h1>
+    <form method="POST" action="/get_brand_offers">
+        <label for="brand">Enter a brand: </label>
+        <input type="text" name="brand" id="brand" required>
+        <input type="submit" value="Get Brand">
+    </form>
+    {% if result %}
+    <p> Result for {{result[0]}} </p>
+    <ul>
+        <li>Similar Brand:</li>
+        {% for j in result[1]['Similar Brand'] %}
+        <ul>{{ j }}</ul>
+        {% endfor %}
+        <ul>
+            <li>Similarity Score: {{ result[1]['Similarity Score'] }}</li>
+            <li>Offers:</li>
+            {% for j in result[1]['Offers'] %}
+            <ul>{{ j }}</ul>
+            {% endfor %}
+        </ul>
+</ul>
+    {% endif %}
+</div>
+</body>
+</html>
+
+
