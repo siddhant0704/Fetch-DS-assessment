@@ -1,4 +1,4 @@
-# Fetch-DS-assessment
+# Product recommendation engine
 
 This repository contains 2 folders namely - Deployment and Modeling.
 
